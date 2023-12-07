@@ -4,22 +4,22 @@ public class Solution
 {
     public static int Run(int[] x)
     {
-        int prod_pos = 1, prod_neg = 1;
+        int prod = 1;
         int count_pos = 0, count_neg = 0, count_zero = 0;
-        int largest_neg = 1;
+        int largest_neg = -1001;
 
         foreach (var num in x)
         {
             if (num > 0){
                 count_pos++;
-                prod_pos *= num;
+                prod *= num;
             } 
             else if (num < 0) 
             {
                 count_neg++;
-                prod_neg *= num;
+                prod *= num;
 
-                if(num > largest_neg || largest_neg == 1)
+                if(num > largest_neg)
                 {
                     largest_neg = num;
                 }
@@ -37,9 +37,13 @@ public class Solution
 
         if (count_pos is 0 && count_zero is 0 && count_neg is 1)
         {
-            return prod_neg;
+            return prod;
         }
 
-        return prod_pos * prod_neg / (prod_neg < 0 ? largest_neg: 1);
+        if(count_neg %  2 != 0) {
+            prod /= largest_neg;
+        }
+
+        return prod;
     }
 }
