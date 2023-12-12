@@ -9,4 +9,8 @@ Console.WriteLine("Task 3: Power Hungry");
 Console.WriteLine(Task3.Solution.Run([-2, -3, 4, -5]));
 Console.WriteLine("----------------------");
 
+Console.WriteLine("Task 4: Fuel Injection Perfection");
+Console.WriteLine(Task4.Solution.Run(55));
+Console.WriteLine("----------------------");
+
 Console.ReadKey();
